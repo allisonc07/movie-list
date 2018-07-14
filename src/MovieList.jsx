@@ -1,17 +1,7 @@
 import React from "react";
-import "./App.css";
-import MovieEntry from "./MovieEntry.js"
+import MovieEntry from "./MovieEntry.jsx"
 
-// class App extends Component{
-//   render(){
-//     return(
-//       <div className="App">
-//         <h1> Movie List </h1>
 
-//       </div>
-//     );
-//   }
-// }
 
 class MovieList extends React.Component {
   constructor(props) {
@@ -19,7 +9,6 @@ class MovieList extends React.Component {
   }
   
   render() {
-    console.log(this.props.movies);
     return (
       <div>
           {this.props.movies.map((movie) =>

@@ -4,7 +4,7 @@ function Search(props) {
   return (
     <span>
       <input type='text' id='searchInput'></input>
-      <button onClick={() => {props.handleClick(document.getElementById('searchInput').value)}}>Search!</button>
+      <button onClick={() => {props.handleSearchClick(document.getElementById('searchInput').value)}}>Search!</button>
     </span>
   );
 }
