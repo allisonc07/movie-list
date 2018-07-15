@@ -12,7 +12,7 @@ class MovieList extends React.Component {
     return (
       <div>
           {this.props.movies.map((movie) =>
-        <MovieEntry movie={movie} />)}
+        <MovieEntry key={movie.title} movie={movie} tab={this.props.watchedTab}/>)}
       </div>
     );
   }

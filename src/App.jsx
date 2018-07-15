@@ -10,10 +10,13 @@ class App extends React.Component {
       movies: [],
       fullMovies: [],
       searchedMovies: [],
-      searching: false
+      searching: false,
+      tab: 'to watch'
     }
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
+    this.changeTabToWatch = this.changeTabToWatch.bind(this);
+    this.changeTabToToWatch = this.changeTabToToWatch.bind(this);
   }
 
   handleSearchClick(searchInput) {
@@ -42,7 +45,19 @@ class App extends React.Component {
       movies: [...this.state.fullMovies, {title: movieInput}],
       fullMovies: [...this.state.fullMovies, {title: movieInput}]
     });
+  }
 
+  changeTabToWatch() {
+    console.log('changed to watch');
+    this.setState({
+      tab: 'watched'
+    });
+  }
+
+  changeTabToToWatch() {
+    this.setState({
+      tab: 'to watch'
+    })
   }
 
   componentDidMount() {
@@ -52,12 +67,16 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('rerendering');
+    console.log(this.state.tab)
     return (
       <div>
         <h1>Movie List</h1>
         <InputMovies addNewMovie={this.addNewMovie}/>
         <Search handleSearchClick={this.handleSearchClick}/>
-        <MovieList movies={this.state.movies}/>
+        <button onClick={this.changeTabToWatch}>Watched</button>
+        <button onClick={this.changeTabToToWatch}>To Watch</button>
+        <MovieList movies={this.state.movies} watchedTab={this.state.tab}/>
       </div>
     );
   }
